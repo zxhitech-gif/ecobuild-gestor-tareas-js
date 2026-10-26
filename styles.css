@@ -1,0 +1,321 @@
+/* Variables de diseño institucional EcoBuild */
+:root {
+    --color-primario: #2E4A35;
+    --color-secundario: #688F4E;
+    --color-fondo: #F4F6F5;
+    --color-texto: #1A1A1A;
+    --color-blanco: #FFFFFF;
+    --color-peligro: #D32F2F;
+    --color-peligro-hover: #B71C1C;
+    --color-advertencia: #F57C00;
+    --color-advertencia-hover: #E65100;
+    --color-neutro: #607D8B;
+    --color-borde: #CCCCCC;
+}
+
+/* Reseteo general del modelo de caja */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.contenedor {
+    width: 90%;
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+/* ==================== CABECERA ==================== */
+.header-principal {
+    background-color: var(--color-primario);
+    color: var(--color-blanco);
+    padding: 2.5rem 0;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.header-principal h1 {
+    font-size: 2.2rem;
+    margin-bottom: 0.4rem;
+}
+
+.slogan {
+    font-size: 1.1rem;
+    font-weight: 300;
+}
+
+/* ==================== TARJETA DEL GESTOR ==================== */
+main {
+    flex: 1;
+}
+
+.card-gestor {
+    background-color: var(--color-blanco);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    margin-bottom: 3rem;
+}
+
+.card-gestor h2 {
+    color: var(--color-primario);
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-size: 1.6rem;
+}
+
+.grupo-input {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 1rem;
+}
+
+#nueva-tarea,
+.input-edicion {
+    background-color: #FFFFFF;
+    color: #1A1A1A;
+    flex-grow: 1;
+    padding: 0.85rem 1rem;
+    border: 1px solid var(--color-borde);
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#nueva-tarea:focus,
+.input-edicion:focus {
+    outline: none;
+    border-color: var(--color-secundario);
+    box-shadow: 0 0 0 3px rgba(104, 143, 78, 0.2);
+}
+
+.btn-primario {
+    background-color: var(--color-secundario);
+    color: var(--color-blanco);
+    border: none;
+    padding: 0.85rem 1.5rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    white-space: nowrap;
+}
+
+.btn-primario:hover {
+    background-color: var(--color-primario);
+}
+
+/* Mensajes de validación y estado */
+.feedback-texto {
+    padding: 0.7rem 1rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.feedback-error {
+    color: var(--color-peligro);
+    background-color: #FFEBEE;
+    border-left: 4px solid var(--color-peligro);
+}
+
+.feedback-exito {
+    color: var(--color-primario);
+    background-color: #E8F5E9;
+    border-left: 4px solid var(--color-secundario);
+}
+
+.oculto {
+    display: none;
+}
+
+.resumen-tareas {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 0.9rem;
+    color: #555555;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #EEEEEE;
+    padding-bottom: 0.5rem;
+}
+
+/* ==================== LISTA Y ELEMENTOS DE TAREA ==================== */
+.lista-tareas {
+    list-style: none;
+}
+
+.lista-vacia {
+    text-align: center;
+    color: #777777;
+    padding: 2rem 1rem;
+    font-style: italic;
+    background-color: var(--color-fondo);
+    border-radius: 6px;
+}
+
+.tarea-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: var(--color-fondo);
+    border-left: 5px solid var(--color-secundario);
+    border-radius: 6px;
+    margin-bottom: 12px;
+    gap: 12px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tarea-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.06);
+}
+
+.tarea-item.completada {
+    border-left-color: #9E9E9E;
+    opacity: 0.85;
+}
+
+.tarea-item.completada .texto-tarea {
+    text-decoration: line-through;
+    color: #757575;
+}
+
+.contenido-tarea {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+}
+
+.badge-estado {
+    font-size: 0.75rem;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-weight: bold;
+    text-transform: uppercase;
+    background-color: #E8F5E9;
+    color: var(--color-primario);
+    white-space: nowrap;
+}
+
+.tarea-item.completada .badge-estado {
+    background-color: #E0E0E0;
+    color: #616161;
+}
+
+.texto-tarea {
+    font-size: 1.05rem;
+    word-break: break-word;
+}
+
+.acciones {
+    display: flex;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.btn-accion {
+    padding: 0.5rem 0.85rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-blanco);
+    transition: background-color 0.2s ease;
+}
+
+.btn-estado {
+    background-color: var(--color-secundario);
+}
+
+.btn-estado:hover {
+    background-color: var(--color-primario);
+}
+
+.btn-editar {
+    background-color: var(--color-advertencia);
+}
+
+.btn-editar:hover {
+    background-color: var(--color-advertencia-hover);
+}
+
+.btn-eliminar {
+    background-color: var(--color-peligro);
+}
+
+.btn-eliminar:hover {
+    background-color: var(--color-peligro-hover);
+}
+
+.btn-cancelar {
+    background-color: var(--color-neutro);
+}
+
+/* ==================== PIE DE PÁGINA ==================== */
+.footer-principal {
+    background-color: #1A1A1A;
+    color: var(--color-blanco);
+    text-align: center;
+    padding: 1.5rem 0;
+    margin-top: auto;
+}
+
+/* ==================== DISEÑO RESPONSIVO ==================== */
+@media (max-width: 650px) {
+    .header-principal {
+        padding: 1.8rem 0;
+    }
+
+    .header-principal h1 {
+        font-size: 1.8rem;
+    }
+
+    .card-gestor {
+        padding: 1.2rem;
+    }
+
+    .grupo-input {
+        flex-direction: column;
+    }
+
+    .btn-primario {
+        width: 100%;
+    }
+
+    .tarea-item {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .contenido-tarea {
+        margin-bottom: 0.5rem;
+    }
+
+    .acciones {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .btn-accion {
+        flex: 1;
+        text-align: center;
+    }
+}

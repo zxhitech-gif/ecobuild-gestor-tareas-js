@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoBuild | Gestor de Tareas Interactivo</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+</head>
+<body>
+    <header class="header-principal">
+        <div class="contenedor">
+            <h1>EcoBuild Constructora</h1>
+            <p class="slogan">Sistema Interactivo de Gestión y Control de Tareas</p>
+        </div>
+    </header>
+
+    <main class="contenedor">
+        <section class="card-gestor">
+            <h2>Mis Tareas Operativas</h2>
+            
+            <!-- Formulario principal para agregar tareas -->
+            <form id="formulario-tareas" class="grupo-input" novalidate>
+                <input 
+                    type="text" 
+                    id="nueva-tarea" 
+                    placeholder="Escribe una nueva tarea (ej. Revisar planos de Residencial Verde)..." 
+                    required
+                    autocomplete="off"
+                >
+                <button type="submit" id="btn-agregar" class="btn-primario">Agregar Tarea</button>
+            </form>
+
+            <!-- Contenedor dinámico para mensajes de validación y confirmación -->
+            <p id="mensaje-feedback" class="oculto feedback-texto" role="alert"></p>
+
+            <!-- Panel de métricas en tiempo real -->
+            <div class="resumen-tareas">
+                <span id="contador-tareas">Total: 0 | Pendientes: 0 | Completadas: 0</span>
+            </div>
+
+            <!-- Lista desordenada donde se renderizan dinámicamente las tareas -->
+            <ul id="lista-tareas" class="lista-tareas"></ul>
+        </section>
+    </main>
+
+    <footer class="footer-principal">
+        <div class="contenedor">
+            <p>&copy; 2026 EcoBuild Constructora. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>
